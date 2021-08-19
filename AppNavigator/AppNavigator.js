@@ -1,21 +1,17 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import React, { useState } from "react";
-import Header from "../Constants/Components/Header";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  FlatList,
-  Image,
-  ScrollView,
-} from "react-native";
-import Home from "../Screens/Home";
+import {View,Text,StyleSheet,TouchableOpacity,FlatList,Image,ScrollView,} from "react-native";
 
+import {Size,Font,Colors} from '../Constants/Styles'
+
+
+
+import Home from "../Screens/Home";
 import Login from "../Screens/Login";
 import SignUp from "../Screens/SignUp";
 import OnBoarding from "../Screens/OnBoarding";
+import Header from "../Constants/Components/Header";
 
 const Stack = createStackNavigator();
 
@@ -59,29 +55,35 @@ const AuthNavigator = (props) => {
       <View
         style={{
           flexDirection: "row",
-          backgroundColor: "dodgerblue",
-          height: 80,
+          
+          height : 50,
           justifyContent: "center",
           alignItems: "center",
           marginTop: 40,
         }}
       >
-        <TouchableOpacity
-          style={{ flex: 1 }}
-          onPress={() => {
-            props.navigation.navigate("Login");
-            setSelected("Login");
-          }}
-        >
+        <TouchableOpacity style={{ 
+        flex: 1 , 
+        padding:Size.padding,
+        justifyContent:'center', 
+        alignItems:'center', 
+        borderBottomColor: selected === 'Login' ? Colors.darkblue : Colors.lightblue , 
+        borderBottomWidth:selected === 'Login' ? 2: 1 , 
+      }}
+                          onPress={() => { props.navigation.navigate("Login"); setSelected("Login"); }}>
           <Text
             style={{
               fontSize: 18,
               fontWeight: selected === "Login" ? "bold" : "100",
-              color: selected === "Login" ? "red" : "grey",
+              color: selected === "Login" ? Colors.darkblue : Colors.lightblue,
+              // borderBottomWidth: selected === "Login" ? 2 :1,
+              // borderBottomColor: selected === "Login" ? Colors.darkblue : Colors.lightblue,
             }}
           >
             Guest
           </Text>
+          
+         
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -89,17 +91,27 @@ const AuthNavigator = (props) => {
             props.navigation.navigate("SignUp");
             setSelected("signup");
           }}
-          style={{ flex: 1 }}
+          style={{
+            flex: 1 , 
+        padding:Size.padding,
+        justifyContent:'center', 
+        alignItems:'center', 
+        borderBottomColor: selected === 'signup' ? Colors.darkblue : Colors.lightblue , 
+        borderBottomWidth:selected === 'signup' ? 2: 1 , 
+          }}
         >
           <Text
             style={{
               fontSize: 18,
               fontWeight: selected === "signup" ? "bold" : "100",
-              color: selected === "signup" ? "red" : "grey",
+              color: selected === "signup" ? Colors.darkblue : Colors.lightblue,
+              // borderBottomWidth: selected === "signup" ? 2 :1,
+              // borderBottomColor: selected === "signup" ? Colors.darkblue : Colors.lightblue
             }}
           >
             Counseller
           </Text>
+          
         </TouchableOpacity>
       </View>
 
