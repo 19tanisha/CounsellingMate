@@ -5,7 +5,20 @@ import { Colors, Size } from "../Styles";
 const Header = () => {
   return (
     <View style={styles.header}>
-      <Image source={require("../../assets/Logo.jpeg")} style={styles.Avatar} />
+
+
+    <Text style = {{fontWeight:'bold', fontSize:25, top:50, color:'white'}}>
+        COUNSELLING-MATE
+    </Text>
+
+
+
+
+
+
+
+
+      <Image source={require("../../assets/logo.png")} style={styles.Avatar} />
     </View>
   );
 };
@@ -17,15 +30,15 @@ const styles = StyleSheet.create({
     width: Size.width,
 
     height: 130,
-
+    
     backgroundColor: Colors.darkblue,
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40,
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 50,
     alignItems: "center",
     justifyContent: "center",
   },
   Avatar: {
-    top: 50,
+    top: 60,
     height: 120,
     width: 120,
     borderRadius: 120,
