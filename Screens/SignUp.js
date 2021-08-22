@@ -34,15 +34,11 @@ const SignUp = (props) => {
           paddingTop: 20,
         }}
       >
-        <MaterialCommunityIcons
-          name="account-lock-outline"
-          size={22}
-          color="darkgrey"
-        />
+        <SimpleLineIcons name="pencil" size={18} color="darkgrey" />
         <TextInput
           placeholder="Name"
           placeholderTextColor="darkgrey"
-          style={{ paddingLeft: 5, padding: 10, fontSize: 16 }}
+          style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
         />
       </View>
       <View
@@ -63,7 +59,7 @@ const SignUp = (props) => {
         <TextInput
           placeholder="Date Of Birth"
           placeholderTextColor="darkgrey"
-          style={{ paddingLeft: 5, padding: 10, fontSize: 16 }}
+          style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
         />
       </View>
       <View
@@ -80,7 +76,8 @@ const SignUp = (props) => {
         <TextInput
           placeholder="Mobile Number"
           placeholderTextColor="darkgrey"
-          style={{ paddingLeft: 5, padding: 10, fontSize: 16 }}
+          style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
+          keyboardType="numeric"
         />
       </View>
 
@@ -101,7 +98,7 @@ const SignUp = (props) => {
         <TextInput
           placeholder="Email"
           placeholderTextColor="darkgrey"
-          style={{ paddingLeft: 5, padding: 10, fontSize: 16 }}
+          style={{ paddingLeft: 5, padding: 10, fontSize: 16,width:'70%' }}
         />
       </View> */}
       <View
@@ -122,7 +119,8 @@ const SignUp = (props) => {
         <TextInput
           placeholder="Email"
           placeholderTextColor="darkgrey"
-          style={{ paddingLeft: 5, padding: 10, fontSize: 16 }}
+          style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
+          keyboardType="email-address"
         />
       </View>
       <View
@@ -141,18 +139,15 @@ const SignUp = (props) => {
           color="darkgrey"
         />
         <TextInput
-          placeholder="Password"
+          placeholder="Set Password"
           placeholderTextColor="darkgrey"
-          style={{ paddingLeft: 5, padding: 10, fontSize: 16 }}
+          style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
+          keyboardType="visible-password"
         />
       </View>
-      {/* <View style={{ width: "70%", alignItems: "flex-end", paddingTop: 10 }}>
-        <Text style={{ color: Colors.darkblue, fontWeight: "700" }}>
-          Forgot Password?
-        </Text>
-      </View> */}
+
       <View style={styles.button}>
-        <Text style={{ color: Colors.darkblue }}>Login</Text>
+        <Text style={{ color: Colors.darkblue }}>Sign-Up</Text>
         <MaterialIcons
           name="arrow-forward-ios"
           size={14}
@@ -163,13 +158,13 @@ const SignUp = (props) => {
 
       <View style={{ flexDirection: "row", paddingTop: 20 }}>
         <Text style={{ fontSize: 14, color: Colors.darkblue }}>
-          Don't have an account?
+          Already have an Account?
         </Text>
-        <TouchableOpacity onPress={() => props.navigation.navigate("SignUp")}>
+        <TouchableOpacity onPress={() => props.navigation.navigate("Login")}>
           <Text
             style={{ fontSize: 15, fontWeight: "bold", color: Colors.darkblue }}
           >
-            {""} SignUp
+            {""} Login
           </Text>
         </TouchableOpacity>
       </View>

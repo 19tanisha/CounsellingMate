@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -13,6 +13,7 @@ import {
 } from "react-native-vector-icons";
 
 const Login = (props) => {
+  const [selected, setSelected] = useState("");
   return (
     <View style={styles.container}>
       <View style={{ paddingBottom: 50 }}>
@@ -27,7 +28,8 @@ const Login = (props) => {
           flexDirection: "row",
           alignItems: "center",
           borderBottomWidth: 2,
-          borderBottomColor: "darkgrey",
+          borderBottomColor:
+            selected === "email" ? Colors.lightblue : "darkgrey",
           width: "70%",
         }}
       >
@@ -39,7 +41,8 @@ const Login = (props) => {
         <TextInput
           placeholder="Email"
           placeholderTextColor="darkgrey"
-          style={{ paddingLeft: 5, padding: 10, fontSize: 16 }}
+          style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
+          keyboardType="email-address"
         />
       </View>
       <View
@@ -60,15 +63,21 @@ const Login = (props) => {
         <TextInput
           placeholder="Password"
           placeholderTextColor="darkgrey"
-          style={{ paddingLeft: 5, padding: 10, fontSize: 16 }}
+          style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
+          keyboardType="default"
         />
       </View>
       <View style={{ width: "70%", alignItems: "flex-end", paddingTop: 10 }}>
-        <Text style={{ color: Colors.darkblue, fontWeight: "700" }}>
-          Forgot Password?
-        </Text>
+        <TouchableOpacity>
+          <Text style={{ color: Colors.darkblue, fontWeight: "700" }}>
+            Forgot Password?
+          </Text>
+        </TouchableOpacity>
       </View>
-      <View style={styles.button}>
+      <TouchableOpacity
+        onPress={() => props.navigation.navigate("Home")}
+        style={styles.button}
+      >
         <Text style={{ color: Colors.darkblue }}>Login</Text>
         <MaterialIcons
           name="arrow-forward-ios"
@@ -76,7 +85,7 @@ const Login = (props) => {
           color={Colors.darkblue}
           style={{}}
         />
-      </View>
+      </TouchableOpacity>
 
       <View style={{ flexDirection: "row", paddingTop: 20 }}>
         <Text style={{ fontSize: 14, color: Colors.darkblue }}>
