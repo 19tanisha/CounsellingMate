@@ -16,13 +16,13 @@ const Login = (props) => {
   const [selected, setSelected] = useState("");
   return (
     <View style={styles.container}>
-      <View style={{ paddingBottom: 50 }}>
+      {/* <View style={{ paddingBottom: 50 }}>
         <Text
           style={{ fontWeight: "bold", fontSize: 22, color: Colors.darkblue }}
         >
           Login as a guest!
         </Text>
-      </View>
+      </View> */}
       <View
         style={{
           flexDirection: "row",
