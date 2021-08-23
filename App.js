@@ -4,7 +4,7 @@ import { Apploading } from "expo";
 import { Font } from "expo";
 import Login from "./Screens/Login";
 import Home from "./Screens/Home";
-
+import BottomTab from "./Constants/Components/BottomTab";
 
 // const getFonts = () => Font.loadAsync({
 //       'CinzelDecorative-Bold': require("./assets/CinzelDecorative-Bold.ttf")

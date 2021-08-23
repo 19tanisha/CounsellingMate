@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { StyleSheet, Text, TouchableOpacity, View,FlatList,Image, ImageBackground } from 'react-native'
 import { Surface } from 'react-native-paper'
+import { Colors } from '../Styles'
 
 
 const CounsellorFlatlist = () => {
@@ -110,59 +111,72 @@ const CounsellorFlatlist = () => {
     return (
         <View>
             <FlatList
+
                 data = {data}
                 horizontal = {false}
                 showsHorizontalScrollIndicator = {false}
                 numColumns = {2}
                 keyExtractor = {(item) => item.id}
                 renderItem = {({item,index}) => {
-                    return(
-                <Surface style={styles.surface}>
 
-                {/* <TouchableOpacity style = {{alignItems:'center', justifyContent:'center',}} > */}
+                return(
                   
-               
-                <Image
-                  style={styles.image}
-                  source={item.img}
-                />
-              
-                <Text style={styles.docname}
-                          numberOfLines = {1}
-                       ellipsizeMode = "tail">
-                  {item.name}
-                </Text>
+                    <Surface style={styles.surface}>
 
+                        {/* <TouchableOpacity style = {{alignItems:'center', justifyContent:'center',}} > */}
+                          
+                      
+                        <Image
+                          style={styles.image}
+                          source={item.img}
+                        />
+                      
+                        <Text 
+                            style={styles.docname}
+                            numberOfLines = {1}
+                            ellipsizeMode = "tail"
+                        >
+                            {item.name}
+                        </Text>
 
+                        <Text 
+                            style={styles.profession}
+                            numberOfLines = {1}
+                            ellipsizeMode = "tail"
+                        >
+                          {item.doctor}
+                        </Text>
 
-                 <Text style={styles.profession}
-                          numberOfLines = {1}
-                       ellipsizeMode = "tail">
-                  {item.doctor}
-                </Text>
+                        <View style = {{flexDirection:'row',}}>
+                      
+                            <Text 
+                                style={styles.years}
+                                numberOfLines = {1}
+                                ellipsizeMode = "tail"
+                            >
+                              {item.years}
+                            </Text>
 
-                <View style = {{flexDirection:'row'}}>
-                 <Text style={styles.years}
-                          numberOfLines = {1}
-                       ellipsizeMode = "tail">
-                  {item.years}
-                </Text>
+                            <TouchableOpacity style = {styles.more}>
+                              <Text style = {{color:Colors.lightblue}}>
+                                More
+                              </Text>
+                            </TouchableOpacity>
 
-                <TouchableOpacity style = {styles.more}>
-                  <Text>
-                    More
-                  </Text>
-                </TouchableOpacity>
+                        </View>
 
-                </View>
+                        {/* </TouchableOpacity> */}
+                  </Surface>
 
-                
-                {/* </TouchableOpacity> */}
-
-              </Surface>
-                    )
+ 
+                )
                 }}
-                />
+
+               
+
+             />
+              
+
         </View>
     )
 }
@@ -172,53 +186,65 @@ export default CounsellorFlatlist
 const styles = StyleSheet.create({
     
     surface: {  
-    width: '47%',
+    width: '48%',
     height:250,
     padding: 3,
-    backgroundColor: "blue",
+    backgroundColor: "white",
     margin: 3,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 0,
     borderTopLeftRadius:10,
     borderBottomRightRadius:10,
-    elevation:10
+    elevation:10,
+    marginVertical:10,
+    marginHorizontal:5
   },
-  image:{ width: 115, height: 130 , bottom:7},
-  docname:{ color: "red",
-   fontSize: 16,
-    fontWeight: "700",
+  image:
+  {
+     width: 115,
+     height: 130 ,
+     bottom:7,
+    
+  },
+  docname:{
+     color: Colors.darkblue ,
+     fontSize: 16,
+     fontWeight: "700",
      width:'100%',
-      alignSelf:'center',
-       paddingLeft:5 
-      },
+     alignSelf:'center',
+     paddingLeft:5 ,
+    },
+
   profession:{ 
-    color: "green",
-     fontSize: 14,
+      color: Colors.darkblue,
+      fontSize: 14,
       fontWeight: "700" ,
-       width:'100%' ,
-        alignItems:'center',
-         padding:5
-        },
+      width:'100%' ,
+      alignItems:'center',
+      padding:5
+    },
+    
   years:{ 
-    color: "green",
-     fontSize: 12, 
-     fontWeight: "700" , 
-     alignSelf:'flex-start',
-      paddingLeft:5, 
-     width:'50%', 
-     paddingTop:10
-     },
+      color: Colors.black,
+      fontSize: 12, 
+      fontWeight: "700" , 
+      alignSelf:'flex-start',
+      paddingLeft:2, 
+      width:'50%', 
+      paddingTop:10
+    },
      
   more:{
-    borderWidth:1,
-     height:30,
-     width:70, 
-    borderColor:'black',
-   borderRadius:10,
-   alignItems:"center",
-   justifyContent:'center', 
-  top:5
-}
+      borderWidth:1,
+      height:30,
+      width:70, 
+      borderColor:Colors.lightblue,
+      borderRadius:10,
+      alignItems:"center",
+      justifyContent:'center', 
+      top:5,
+      right:5
+   },
   
 })

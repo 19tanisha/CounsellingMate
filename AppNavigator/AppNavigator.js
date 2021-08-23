@@ -115,6 +115,41 @@ const AuthNavigator = (props) => {
         </TouchableOpacity>
       </View>
 
+
+
+        <View style = {{marginTop:50, alignItems:'center', justifyContent:'center'}}>
+          {
+            selected === 'Login' ? (
+          <Text style = {{
+            fontWeight:'bold',
+            fontSize:22,
+            color:Colors.darkblue
+          }}>
+            Login as guest
+          </Text>
+            ) : (
+            <Text style = {{
+            fontWeight:'bold',
+            fontSize:22,
+            color:Colors.darkblue
+          }}>
+            Login as Counsellor
+            </Text>
+            )
+          } 
+        </View>
+
+
+
+
+
+
+
+
+
+
+
+
       <Stack.Navigator>
         <Stack.Screen
           name="Login"
@@ -134,4 +169,8 @@ const AuthNavigator = (props) => {
     </>
   );
 };
+
+
+         
+
 export { AppNavigator, AuthNavigator };
