@@ -10,9 +10,11 @@ import { Colors, Size } from "../Constants/Styles";
 import {
   MaterialCommunityIcons,
   MaterialIcons,
+  Entypo,
 } from "react-native-vector-icons";
 
 const Login = (props) => {
+  const [isSecureEntry, setIsSecureEntry] = useState(true);
   const [selected, setSelected] = useState("");
   return (
     <View style={styles.container}>
@@ -43,6 +45,12 @@ const Login = (props) => {
           placeholderTextColor="darkgrey"
           style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
           keyboardType="email-address"
+          onFocus={() => {
+            setSelected("email");
+          }}
+          onBlur={() => {
+            setSelected("");
+          }}
         />
       </View>
       <View
@@ -50,7 +58,8 @@ const Login = (props) => {
           flexDirection: "row",
           alignItems: "center",
           borderBottomWidth: 2,
-          borderBottomColor: "darkgrey",
+          borderBottomColor:
+            selected === "password" ? Colors.lightblue : "darkgrey",
           width: "70%",
           paddingTop: 20,
         }}
@@ -63,9 +72,27 @@ const Login = (props) => {
         <TextInput
           placeholder="Password"
           placeholderTextColor="darkgrey"
-          style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
+          style={{ paddingLeft: 5, padding: 10, fontSize: 16, flex: 1 }}
           keyboardType="default"
+          secureTextEntry={isSecureEntry}
+          onFocus={() => {
+            setSelected("password");
+          }}
+          onBlur={() => {
+            setSelected("");
+          }}
         />
+        <TouchableOpacity
+          onPress={() => {
+            setIsSecureEntry(!isSecureEntry);
+          }}
+        >
+          {isSecureEntry ? (
+            <Entypo name="eye" size={24} color="darkgrey" />
+          ) : (
+            <Entypo name="eye-with-line" size={24} color="darkgrey" />
+          )}
+        </TouchableOpacity>
       </View>
       <View style={{ width: "70%", alignItems: "flex-end", paddingTop: 10 }}>
         <TouchableOpacity>

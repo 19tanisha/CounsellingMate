@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -13,8 +13,10 @@ import {
   SimpleLineIcons,
 } from "react-native-vector-icons";
 import { signInAsync } from "expo-google-sign-in";
+// import DatePicker from "react-native-datepicker";
 
 const SignUp = (props) => {
+  // const [date, setDate] = useState("09-10-2020");
   return (
     <View style={styles.container}>
       <View style={{ paddingBottom: 50 }}>
@@ -56,11 +58,39 @@ const SignUp = (props) => {
           size={22}
           color="darkgrey"
         />
-        <TextInput
-          placeholder="Date Of Birth"
-          placeholderTextColor="darkgrey"
-          style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
-        />
+        <View>
+          <TextInput
+            placeholder="Date Of Birth"
+            placeholderTextColor="darkgrey"
+            style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
+          />
+          {/* <DatePicker
+            style={styles.datePickerStyle}
+            date={date} // Initial date from state
+            mode="date" // The enum of date, datetime and time
+            placeholder="select date"
+            format="DD-MM-YYYY"
+            minDate="01-01-2016"
+            maxDate="01-01-2019"
+            confirmBtnText="Confirm"
+            cancelBtnText="Cancel"
+            customStyles={{
+              dateIcon: {
+                //display: 'none',
+                position: "absolute",
+                left: 0,
+                top: 4,
+                marginLeft: 0,
+              },
+              dateInput: {
+                marginLeft: 36,
+              },
+            }}
+            onDateChange={(date) => {
+              setDate(date);
+            }}
+          /> */}
+        </View>
       </View>
       <View
         style={{
