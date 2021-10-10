@@ -17,6 +17,7 @@ import { signInAsync } from "expo-google-sign-in";
 
 const SignUp = (props) => {
   // const [date, setDate] = useState("09-10-2020");
+  const [selected, setSelected] = useState();
   return (
     <View style={styles.container}>
       <View style={{ paddingBottom: 50 }}>
@@ -31,7 +32,8 @@ const SignUp = (props) => {
           flexDirection: "row",
           alignItems: "center",
           borderBottomWidth: 2,
-          borderBottomColor: "darkgrey",
+          borderBottomColor:
+            selected === "email" ? Colors.darkblue : "darkgrey",
           width: "70%",
           paddingTop: 20,
         }}
@@ -41,6 +43,12 @@ const SignUp = (props) => {
           placeholder="Name"
           placeholderTextColor="darkgrey"
           style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
+          onFocus={() => {
+            setSelected("name");
+          }}
+          onBlur={() => {
+            setSelected("");
+          }}
         />
       </View>
       <View
@@ -48,7 +56,7 @@ const SignUp = (props) => {
           flexDirection: "row",
           alignItems: "center",
           borderBottomWidth: 2,
-          borderBottomColor: "darkgrey",
+          borderBottomColor: selected === "name" ? Colors.darkblue : "darkgrey",
           width: "70%",
           paddingTop: 20,
         }}
@@ -63,6 +71,12 @@ const SignUp = (props) => {
             placeholder="Date Of Birth"
             placeholderTextColor="darkgrey"
             style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
+            onFocus={() => {
+              setSelected("dob");
+            }}
+            onBlur={() => {
+              setSelected("");
+            }}
           />
           {/* <DatePicker
             style={styles.datePickerStyle}
@@ -97,7 +111,7 @@ const SignUp = (props) => {
           flexDirection: "row",
           alignItems: "center",
           borderBottomWidth: 2,
-          borderBottomColor: "darkgrey",
+          borderBottomColor: selected === "dob" ? Colors.darkblue : "darkgrey",
           width: "70%",
           paddingTop: 20,
         }}
@@ -108,35 +122,22 @@ const SignUp = (props) => {
           placeholderTextColor="darkgrey"
           style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
           keyboardType="numeric"
+          onFocus={() => {
+            setSelected("number");
+          }}
+          onBlur={() => {
+            setSelected("");
+          }}
         />
       </View>
 
-      {/* <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          borderBottomWidth: 2,
-          borderBottomColor: "darkgrey",
-          width: "70%",
-        }}
-      >
-        <MaterialCommunityIcons
-          name="email-outline"
-          size={22}
-          color="darkgrey"
-        />
-        <TextInput
-          placeholder="Email"
-          placeholderTextColor="darkgrey"
-          style={{ paddingLeft: 5, padding: 10, fontSize: 16,width:'70%' }}
-        />
-      </View> */}
       <View
         style={{
           flexDirection: "row",
           alignItems: "center",
           borderBottomWidth: 2,
-          borderBottomColor: "darkgrey",
+          borderBottomColor:
+            selected === "email" ? Colors.darkblue : "darkgrey",
           width: "70%",
           paddingTop: 20,
         }}
@@ -151,6 +152,12 @@ const SignUp = (props) => {
           placeholderTextColor="darkgrey"
           style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
           keyboardType="email-address"
+          onFocus={() => {
+            setSelected("email");
+          }}
+          onBlur={() => {
+            setSelected("");
+          }}
         />
       </View>
       <View
@@ -158,7 +165,8 @@ const SignUp = (props) => {
           flexDirection: "row",
           alignItems: "center",
           borderBottomWidth: 2,
-          borderBottomColor: "darkgrey",
+          borderBottomColor:
+            selected === "setpass" ? Colors.darkblue : "darkgrey",
           width: "70%",
           paddingTop: 20,
         }}
@@ -173,6 +181,12 @@ const SignUp = (props) => {
           placeholderTextColor="darkgrey"
           style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
           keyboardType="visible-password"
+          onFocus={() => {
+            setSelected("setpass");
+          }}
+          onBlur={() => {
+            setSelected("");
+          }}
         />
       </View>
 

@@ -31,19 +31,22 @@ const Login = (props) => {
           alignItems: "center",
           borderBottomWidth: 2,
           borderBottomColor:
-            selected === "email" ? Colors.lightblue : "darkgrey",
+            selected === "email" ? Colors.darkblue : "darkgrey",
           width: "70%",
         }}
       >
         <MaterialCommunityIcons
           name="email-outline"
           size={22}
-          color="darkgrey"
+          color={selected === "email" ? Colors.darkblue : "darkgrey"}
         />
         <TextInput
           placeholder="Email"
           placeholderTextColor="darkgrey"
           style={{ paddingLeft: 5, padding: 10, fontSize: 16, width: "70%" }}
+          placeholderTextColor={
+            selected === "email" ? Colors.darkblue : "darkgrey"
+          }
           keyboardType="email-address"
           onFocus={() => {
             setSelected("email");
@@ -59,7 +62,7 @@ const Login = (props) => {
           alignItems: "center",
           borderBottomWidth: 2,
           borderBottomColor:
-            selected === "password" ? Colors.lightblue : "darkgrey",
+            selected === "password" ? Colors.darkblue : "darkgrey",
           width: "70%",
           paddingTop: 20,
         }}
@@ -67,7 +70,7 @@ const Login = (props) => {
         <MaterialCommunityIcons
           name="account-lock-outline"
           size={22}
-          color="darkgrey"
+          color={selected === "password" ? Colors.darkblue : "darkgrey"}
         />
         <TextInput
           placeholder="Password"
@@ -75,6 +78,9 @@ const Login = (props) => {
           style={{ paddingLeft: 5, padding: 10, fontSize: 16, flex: 1 }}
           keyboardType="default"
           secureTextEntry={isSecureEntry}
+          placeholderTextColor={
+            selected === "password" ? Colors.darkblue : "darkgrey"
+          }
           onFocus={() => {
             setSelected("password");
           }}
