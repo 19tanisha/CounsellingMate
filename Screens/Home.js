@@ -9,7 +9,7 @@ const Home = (props) => {
     <View style={styles.container}>
       <View style={{ flexDirection: "row", width: "100%" }}>
         <View style={{ width: "20%" }}>
-          <TouchableOpacity onPress={() => props.navigation.openDrawer()}>
+          <TouchableOpacity>
             <Image
               source={require("../assets/logo.png")}
               style={styles.Avatar}
