@@ -18,13 +18,13 @@ const Login = (props) => {
   const [selected, setSelected] = useState("");
   return (
     <View style={styles.container}>
-      {/* <View style={{ paddingBottom: 50 }}>
+      <View style={{ paddingBottom: 30 }}>
         <Text
           style={{ fontWeight: "bold", fontSize: 22, color: Colors.darkblue }}
         >
           Login as a guest!
         </Text>
-      </View> */}
+      </View>
       <View
         style={{
           flexDirection: "row",
@@ -108,7 +108,7 @@ const Login = (props) => {
         </TouchableOpacity>
       </View>
       <TouchableOpacity
-        onPress={() => props.navigation.navigate("Home")}
+        onPress={() => props.navigation.navigate("DrawerNavigator")}
         style={styles.button}
       >
         <Text style={{ color: Colors.darkblue }}>Login</Text>
@@ -124,7 +124,9 @@ const Login = (props) => {
         <Text style={{ fontSize: 14, color: Colors.darkblue }}>
           Don't have an account?
         </Text>
-        <TouchableOpacity onPress={() => props.navigation.navigate("SignUp")}>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate("SignUpGuest")}
+        >
           <Text
             style={{ fontSize: 15, fontWeight: "bold", color: Colors.darkblue }}
           >

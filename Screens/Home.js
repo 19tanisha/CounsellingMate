@@ -4,12 +4,18 @@ import ArticleCarousel from "../Constants/Components/ArticleCarousel";
 import CounsellorFlatlist from "../Constants/Components/CounsellorFlatlist";
 import { Size, Colors, Font } from "../Constants/Styles";
 import { Entypo, FontAwesome } from "react-native-vector-icons";
+
 const Home = (props) => {
+  console.log(props);
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: "row", width: "100%" }}>
         <View style={{ width: "20%" }}>
-          <TouchableOpacity onPress={() => props.navigation.openDrawer()}>
+          <TouchableOpacity
+            onPress={() => {
+              props.navigation.openDrawer();
+            }}
+          >
             <Image
               source={require("../assets/logo.png")}
               style={styles.Avatar}
