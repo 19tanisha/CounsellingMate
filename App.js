@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AppNavigator, AuthNavigator } from "./AppNavigator/AppNavigator";
 import { Apploading } from "expo";
 import { Font } from "expo";
-import Login from "./Screens/Login";
+import Login from "./Screens/LoginGuest";
 import Home from "./Screens/Home";
 
 // const getFonts = () => Font.loadAsync({

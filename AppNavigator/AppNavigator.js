@@ -10,18 +10,19 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-
 import { Size, Font, Colors } from "../Constants/Styles";
 import Home from "../Screens/Home";
-import Login from "../Screens/Login";
-import SignUp from "../Screens/SignUp";
+import Login from "../Screens/LoginGuest";
+import SignUpGuest from "../Screens/SignUpGuest";
 import OnBoarding from "../Screens/OnBoarding";
 import Header from "../Constants/Components/Header";
 import MyFav from "../Drawer Screen/MyFav";
 import Setting from "../Drawer Screen/Setting";
 import AboutUs from "../Drawer Screen/AboutUs";
-// import { createDrawerNavigator } from "@react-navigation/drawer";
-// import { DrawerContent } from "../Screens/DrawerContent";
+import LoginCounseller from "../Screens/LoginCounseller";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { DrawerContent } from "../Screens/DrawerContent";
+
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
@@ -50,13 +51,20 @@ const AppNavigator = () => {
             headerShown: false,
           }}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
+          name="SignUpGuest"
+          component={SignUpGuest}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
           name="DrawerNavigator"
           component={DrawerNavigator}
-          // options={{
-          //   headerShown: false,
-          // }}
-        /> */}
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -108,7 +116,7 @@ const AuthNavigator = (props) => {
 
         <TouchableOpacity
           onPress={() => {
-            props.navigation.navigate("Login");
+            props.navigation.navigate("LoginCounseller");
             setSelected("signup");
           }}
           style={{
@@ -135,36 +143,6 @@ const AuthNavigator = (props) => {
         </TouchableOpacity>
       </View>
 
-      <View
-        style={{
-          marginTop: 50,
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        {selected === "Login" ? (
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 22,
-              color: Colors.darkblue,
-            }}
-          >
-            Login as guest
-          </Text>
-        ) : (
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 22,
-              color: Colors.darkblue,
-            }}
-          >
-            Login as Counsellor
-          </Text>
-        )}
-      </View>
-
       <Stack.Navigator>
         <Stack.Screen
           name="Login"
@@ -174,8 +152,8 @@ const AuthNavigator = (props) => {
           }}
         />
         <Stack.Screen
-          name="SignUp"
-          component={SignUp}
+          name="LoginCounseller"
+          component={LoginCounseller}
           options={{
             headerShown: false,
           }}
@@ -187,27 +165,19 @@ const AuthNavigator = (props) => {
 
 export { AppNavigator, AuthNavigator };
 
-// const Drawer = createDrawerNavigator();
-// function DrawerNavigator() {
-//   return (
-//     <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
-//       <Drawer.Screen name="My Favourites" component={MyFav} />
-//       <Drawer.Screen name="Settings" component={Setting} />
-//       <Drawer.Screen name="About Us" component={AboutUs} />
-//     </Drawer.Navigator>
-//   );
-// }
-// const Drawer = createDrawerNavigator();
-// function DrawerNavigator() {
-//   return (
-//     <Drawer.Navigator
-//       drawerContent={(props) => <DrawerContent props={props} />}
-//     >
-//       <Drawer.Screen name="Home" component={Home} />
-//       <Drawer.Screen name="MyFav" component={MyFav} />
-//       <Drawer.Screen name="Settings" component={Setting} />
-//       <Drawer.Screen name="AboutUs" component={AboutUs} />
-//     </Drawer.Navigator>
-//   );
-// }
-// export default DrawerNavigator;
+const Drawer = createDrawerNavigator();
+function DrawerNavigator() {
+  return (
+    <NavigationContainer independent={true}>
+      <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
+        {/* <Drawer.Navigator> */}
+        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="MyFav" component={MyFav} />
+        <Drawer.Screen name="Setting" component={Setting} />
+        <Drawer.Screen name="AboutUs" component={AboutUs} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default DrawerNavigator;
